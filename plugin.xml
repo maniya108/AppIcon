@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-app-icon" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>AppIcon</name>
+    <js-module name="AppIcon" src="www/AppIcon.js">
+        <clobbers target="AppIcon" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="AppIcon">
+                <param name="android-package" value="com.cordova.appicon.AppIcon" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml" />
+        <source-file src="src/android/AppIcon.java" target-dir="src/com/cordova/appicon" />
+        <source-file src="src/android/AppIconBase.java" target-dir="src/com/cordova/appicon" />
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="AppIcon">
+                <param name="ios-package" value="AppIcon" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/AppIcon.h" />
+        <source-file src="src/ios/AppIcon.m" />
+    </platform>
+</plugin>
